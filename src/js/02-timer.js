@@ -6,6 +6,7 @@ import "../css/common.css";
 const startBtn = document.querySelector('[data-start]');
 const input = document.querySelector('#datetime-picker');
 let idSetInterval = null;
+input.value='';
 const refs = {
 seconds: document.querySelector('[data-seconds]'),
 minutes: document.querySelector('[data-minutes]'),
