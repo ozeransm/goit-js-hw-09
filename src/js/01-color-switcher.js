@@ -1,6 +1,5 @@
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
-const body = document.querySelector('body');
 let idSetInterval=null;
 stopBtn.setAttribute("disabled","");
 
@@ -9,7 +8,7 @@ stopBtn.addEventListener('click',stopHandle);
 
 function startHandle(){
     idSetInterval = setInterval(()=>{
-        body.style.backgroundColor=getRandomHexColor();
+        document.body.style.backgroundColor=getRandomHexColor();
     },1000);
     startBtn.setAttribute("disabled","");
     stopBtn.removeAttribute("disabled");

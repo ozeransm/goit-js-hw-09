@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  
 }
 
 body {
@@ -15,4 +16,18 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+.timer{
+  display: flex;
+  margin-left: 5px;
+}
+.field{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  text-align: center;
+
+}
+.value{
+  font-size: 25px;
 }
