@@ -27,9 +27,14 @@ function handleBtn(evt){
   if (!(evt.target.nodeName === 'BUTTON')){
     return;
   }
+  let delay = parseInt(refs.inputDelay.value);
+  if((parseInt(refs.inputAmount.value)>=0)&&(parseInt(refs.inputStep.value)>0)&&(parseInt(refs.inputDelay.value)>0)){
   for(let i=1;i<=parseInt(refs.inputAmount.value);i++){
-     console.log(createPromise(i,i*parseInt(refs.inputStep.value)+parseInt(refs.inputDelay.value))
-    .then(({position, delay})=>{console.log(`✅ Fulfilled promise ${position} in ${delay}ms`); Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);})
-    .catch(({position, delay})=>{console.log(`❌ Rejected promise ${position} in ${delay}ms`); Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);}));
+    // i*parseInt(refs.inputStep.value)+parseInt(refs.inputDelay.value)
+     console.log(createPromise(i,delay)
+    .then(({position, delay})=>{Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);})
+    .catch(({position, delay})=>{Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);}));
+  delay += parseInt(refs.inputStep.value);
   }
+} else{console.log('значення полів мають бути більше нуля')}
 }

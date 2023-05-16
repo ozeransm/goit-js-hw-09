@@ -39,13 +39,13 @@ function convertMs(ms) {
   const day = hour * 24;
 
   // Remaining days
-  const days = Math.floor(ms / day);
+  const days = Math.floor(ms / day).toString().padStart(2,'0');
   // Remaining hours
-  const hours = Math.floor((ms % day) / hour);
+  const hours = Math.floor((ms % day) / hour).toString().padStart(2,'0');
   // Remaining minutes
-  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const minutes = Math.floor(((ms % day) % hour) / minute).toString().padStart(2,'0');
   // Remaining seconds
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second).toString().padStart(2,'0');
 
   return { days, hours, minutes, seconds };
 }
@@ -69,10 +69,10 @@ startBtn.addEventListener('click',()=>{
     }
     
     const { days, hours, minutes, seconds } = convertMs(dateSetInput.getTime()-dateNow);
-    refs.days.innerText = days.toString().length===1 ? days.toString().padStart(2,'0'):days.toString();
-    refs.hours.innerText = hours.toString().padStart(2,'0');
-    refs.minutes.innerText = minutes.toString().padStart(2,'0');
-    refs.seconds.innerText = seconds.toString().padStart(2,'0');
+    refs.days.textContent = days;
+    refs.hours.textContent = hours;
+    refs.minutes.textContent = minutes;
+    refs.seconds.textContent = seconds;
 
    },1000);
     
